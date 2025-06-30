@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    {{> navbar}}
+
+    <h1>Update Blog: {{blog.title}}</h1>
+
+    <form action="/update" method="POST">
+        Title: 
+        <input value="{{blog.title}}" type="text" name="title" placeholder="Update Title"><br>
+
+        Actor: <br>  
+
+        <select name="actor" id="select">
+            <option value="{{blog.actor._id}}" disabled selected>{{blog.actor.name}}</option>
+        </select>
+
+        Content: 
+        <textarea name="content" placeholder="">{{blog.content}}</textarea><br>
+
+        <input type="hidden" name="id" value="{{blog._id}}">
+
+        <button type="submit">Update Blog</button>
+    </form>
+
+</body>
+</html>
